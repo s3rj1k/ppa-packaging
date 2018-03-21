@@ -1,12 +1,5 @@
 #!/usr/bin/make -f
 
-# This needs to run before inclusion of CDBS snippets
-debian/control:: debian/control.in
-DEB_PHONY_RULES += debian/control.in
-debian/control.in::
-	sed $(foreach re,API ABI ARCHS,-e 's/__$(re)__/$($(re))/g') \
-		< debian/control.in.in > debian/control.in
-
 include /usr/share/dpkg/default.mk
 
 include /usr/share/cdbs/1/rules/upstream-tarball.mk
@@ -51,7 +44,6 @@ outdir = $(CURDIR)/v8/out.gn/$(v8arch).release
 v8out = $(outdir)/$(LIBSTEM).$(ABI)
 d8out = $(outdir)/d8
 
-
 package = libv8-$(API)
 package_main = libv8-$(API)
 package_dev = libv8-$(API)-dev
@@ -61,7 +53,6 @@ TMP_INCLUDE_DIR = $(CURDIR)/debian/tmp/opt_include/$(package)/include
 
 SHELL := /bin/bash
 PATH := $(CURDIR)/depot_tools:$(PATH)
-
 
 # Setup dynamically named debhelper install file during build
 pre-build::
@@ -74,7 +65,6 @@ clean::
 clean::
 	rm -f debian/libv8*.new.abi
 	rm -f debian/acc_report.html
-
 
 common-install-impl::
 	mkdir -p $(TMP_LIB_DIR) ; \

@@ -1,19 +1,13 @@
-Source: libv8-__API__
+Source: PKG_NAME
 Priority: optional
-Maintainer: Bogdan Padalko <pinepain@gmail.com>
-Build-Depends: @cdbs@,
- git,
- libglib2.0-dev,
- python2.7,
- pkg-config
-Standards-Version: 3.9.8
+Maintainer: DEB_FULL_NAME <DEB_EMAIL>
+Build-Depends: cdbs, git, libglib2.0-dev, python2.7, pkg-config
+Standards-Version: 3.9.6
 Section: libs
 Homepage: https://developers.google.com/v8/
-Vcs-Browser: https://github.com/pinepain/php-v8
-Vcs-Git: https://github.com/pinepain/php-v8.git
 
-Package: libv8-__API__
-Architecture: __ARCHS__
+Package: PKG_NAME
+Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: V8 JavaScript engine - runtime library
  V8 is a high performance JavaScript engine written in C++.
@@ -21,21 +15,21 @@ Description: V8 JavaScript engine - runtime library
  .
  This package provides the dynamic library for V8.
 
-Package: libv8-__API__-dev
+Package: PKG_NAME-dev
 Section: libdevel
-Architecture: __ARCHS__
-Depends: libv8-__API__ (= ${binary:Version}), ${misc:Depends}
-Description: V8 JavaScript engine - development files for __API__ branch
+Architecture: amd64
+Depends: PKG_NAME (= ${binary:Version}), ${misc:Depends}
+Description: V8 JavaScript engine - development files for GIT_VERSION
  V8 is a high performance JavaScript engine written in C++.
  It is used in the web browser Chromium.
  .
- This package provide development headers for V8 __API__ branch.
+ This package provide development headers for V8 GIT_VERSION.
 
-Package: libv8-__API__-dbg
+Package: PKG_NAME-dbg
 Priority: extra
 Section: debug
-Architecture: __ARCHS__
-Depends: libv8-__API__ (= ${binary:Version}), ${misc:Depends}
+Architecture: amd64
+Depends: PKG_NAME (= ${binary:Version}), ${misc:Depends}
 Description: V8 JavaScript engine - debugging symbols
  V8 is a high performance JavaScript engine written in C++.
  It is used in the web browser Chromium.
