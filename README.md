@@ -6,12 +6,12 @@ Prerequisites
 
 The following packages needs to be installed in order to build source .deb package:
 
-    sudo apt-get install git devscripts debhelper dh-make
+    sudo apt-get install git build-essential devscripts debhelper dh-make cdbs
 
 Build
 -------------
 
-Before build ypu should set environmental variables below:
+Before build you should set environmental variables below:
 
     DEBFULLNAME
     DEBEMAIL
