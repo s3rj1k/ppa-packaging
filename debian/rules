@@ -70,6 +70,7 @@ common-install-impl::
 	mkdir -p $(TMP_LIB_DIR) ; \
 	cd $(TMP_LIB_DIR) ; \
 	cp $(outdir)/*.so . ; \
+	cp $(outdir)/obj/*.a . ; \
 	cp $(outdir)/icudtl.dat . ; \
 	cp $(outdir)/d8 . ; \
 	mkdir -p $(TMP_INCLUDE_DIR) ; \
