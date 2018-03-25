@@ -116,4 +116,4 @@ _build: distro
 	done
 
 clean:
-	@rm -Rf work
+	@rm -Rf ${BUILD_DIR}
