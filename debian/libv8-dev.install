@@ -1,1 +1,1 @@
-debian/tmp/opt_include/* opt
+debian/tmp/opt_include/libv8-*/include/* usr/include/v8
