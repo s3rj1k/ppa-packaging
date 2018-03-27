@@ -73,6 +73,8 @@ common-install-impl::
 	cp $(outdir)/obj/*.a . ; \
 	cp $(outdir)/icudtl.dat . ; \
 	cp $(outdir)/d8 . ; \
+	mkdir -p $(TMP_LIB_DIR)/src/inspector ; \
+	cp $(outdir)/obj/src/inspector/*.a ./src/inspector/ ; \
 	mkdir -p $(TMP_INCLUDE_DIR) ; \
 	cd $(TMP_INCLUDE_DIR) ; \
 	cp -R $(CURDIR)/v8/include/*.h . ; \
