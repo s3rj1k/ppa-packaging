@@ -39,10 +39,6 @@ ${BUILD_DIR}/${NAME}_${VERSION}:
 	cd "${NAME}_${VERSION}"	; \
 	cp ./../../stub-gclient-spec .gclient ; \
 	cp ./../../Makefile.target Makefile ; \
-	cp ./../../v8.pc v8.pc ; \
-	cp ./../../v8_static.pc v8_static.pc ; \
-	sed -i -e "s/GIT_VERSION/${GIT_VERSION}/g" v8.pc ; \
-	sed -i -e "s/GIT_VERSION/${GIT_VERSION}/g" v8_static.pc ; \
 	git clone --depth=1 https://chromium.googlesource.com/chromium/tools/depot_tools.git ; \
 	export PATH=`pwd`/depot_tools:"${PATH}" ; \
 	gclient sync -j ${NPROCS} -r ${VERSION} ; \
@@ -82,6 +78,8 @@ _build: distro
 	for distro in ${DISTROS}; do \
 	  NEW_VER="${VERSION}-${BUILD_VERSION}~$$distro"; \
 	  rm -Rf debian ; cp -r ../../debian . ; \
+	  sed -i -e "s/GIT_VERSION/${GIT_VERSION}/g" debian/v8.pc ; \
+	  sed -i -e "s/GIT_VERSION/${GIT_VERSION}/g" debian/v8_static.pc ; \
 	  sed -i -e "s/DISTRO/$$distro/g" debian/changelog ; \
 	  sed -i -e "s/BUILD_VERSION/${BUILD_VERSION}/g" debian/changelog ; \
 	  sed -i -e "s/GIT_VERSION/${GIT_VERSION}/g" debian/changelog ; \
